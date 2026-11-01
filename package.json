@@ -1,0 +1,17 @@
+{
+  "name": "wordpress-vibe-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "dev": "node scripts/astro.mjs dev --host 127.0.0.1",
+    "build": "node scripts/astro.mjs build",
+    "preview": "node scripts/astro.mjs preview --host 127.0.0.1",
+    "wp": "node scripts/wordpress.mjs",
+    "sync": "node --env-file-if-exists=.env scripts/sync-content.mjs",
+    "doctor": "node scripts/doctor.mjs"
+  },
+  "dependencies": { "astro": "7.4.4" },
+  "devDependencies": { "@wp-playground/cli": "3.1.61" }
+}

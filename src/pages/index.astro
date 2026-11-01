@@ -1,0 +1,26 @@
+---
+import posts from '../data/posts.json';
+const base = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="由 WordPress 管理内容的独立网站。" />
+    <title>我的独立站</title>
+  </head>
+  <body>
+    <header><a href={base}>我的独立站<span>WORDPRESS × ASTRO</span></a><a href="#articles">最新文章 ↗</a></header>
+    <main>
+      <section class="hero"><p class="eyebrow">A NEW BEGINNING</p><h1>想法，在这里<br /><em>成为现实。</em></h1><p class="intro">记录探索，分享作品。每一个新的开始，都从一个值得表达的想法出发。</p><a class="button" href="#articles">阅读最新内容 <span>↓</span></a></section>
+      <section id="articles"><div class="section-title"><h2>最新文章</h2><span>JOURNAL / {String(posts.length).padStart(2, '0')}</span></div>
+        {posts.length === 0 ? <p class="empty">第一篇文章即将发布。</p> : <div class="articles">{posts.map((post, i) => <a class="card" href={`${base}posts/${post.id}/`}><span class="number">{String(i + 1).padStart(2, '0')}</span><div><p class="date">{post.date.slice(0, 10)}</p><h3 set:html={post.title} /><div class="excerpt" set:html={post.excerpt} /></div><span class="arrow">↗</span></a>)}</div>}
+      </section>
+    </main>
+    <footer><span>© {new Date().getFullYear()} 我的独立站</span><span>保持好奇，持续创造。</span></footer>
+    <style is:global>
+      *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f5f0;color:#202d27;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}header,main,footer{max-width:1120px;margin:auto;padding:0 32px}header{height:108px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #d6dcd3;font-size:14px}header>a:first-child{font-weight:700;font-size:20px}header span{display:block;font-size:9px;letter-spacing:2px;margin-top:6px;font-weight:400}.hero{padding:100px 0 110px}.eyebrow{font-size:11px;letter-spacing:3px;color:#637765}h1{font-size:clamp(48px,8vw,94px);line-height:1.15;letter-spacing:-4px;font-weight:500;margin:28px 0}h1 em{font-style:normal;color:#65816c}.intro{max-width:420px;color:#647168;line-height:1.9}.button{margin-top:26px;display:inline-flex;gap:55px;background:#233c2e;color:#fff;padding:17px 22px;font-size:14px}.section-title{border-top:1px solid #cfd7cb;padding:30px 0;display:flex;justify-content:space-between;align-items:center}.section-title h2{font-size:24px;font-weight:500;margin:0}.section-title>span{font-size:11px;letter-spacing:2px;color:#6b796d}.card{display:flex;gap:30px;padding:35px 0;border-top:1px solid #d6dcd3}.number,.date{font-size:12px;color:#748074}.number{padding-top:12px}.card h3{font-size:27px;margin:10px 0;font-weight:500}.excerpt{color:#69756a;line-height:1.8}.arrow{margin-left:auto;font-size:26px}.empty{padding:35px 0;color:#6b796d}footer{display:flex;justify-content:space-between;margin-top:80px;padding-top:24px;padding-bottom:32px;border-top:1px solid #d6dcd3;font-size:12px;color:#718074}.article{max-width:760px;padding-top:70px;min-height:65vh}.article h1{font-size:42px;letter-spacing:-1px}.content{line-height:1.9;overflow-wrap:anywhere}.content a{text-decoration:underline}.content img{max-width:100%;height:auto}@media(max-width:600px){header,main,footer{padding-left:22px;padding-right:22px}.hero{padding:65px 0}.card{gap:16px}h1{letter-spacing:-2px}.section-title>span{font-size:9px}footer{gap:20px}}
+    </style>
+  </body>
+</html>

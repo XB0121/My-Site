@@ -1,0 +1,9 @@
+---
+import posts from '../../data/posts.json';
+export function getStaticPaths() { return posts.map(post => ({ params: { id: String(post.id) }, props: { post } })); }
+const { post } = Astro.props;
+---
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>{post.title.replace(/<[^>]*>/g, '')} · 我的独立站</title></head>
+<body><main><a href={import.meta.env.BASE_URL}>← 返回首页</a><p>{post.date.slice(0,10)}</p><h1 set:html={post.title} /><article set:html={post.content} /></main></body></html>
+<style is:global>body{background:#f6f5f0;color:#202d27;font-family:system-ui,sans-serif;margin:0}main{max-width:740px;margin:70px auto;padding:0 24px}a{color:#44674e}h1{font-size:38px}p{line-height:1.9}article{line-height:1.9;overflow-wrap:anywhere}img{max-width:100%;height:auto}pre{overflow:auto}</style>
