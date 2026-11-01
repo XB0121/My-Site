@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { runCLI } from '@wp-playground/cli';
 
@@ -6,6 +6,8 @@ import { runCLI } from '@wp-playground/cli';
 const storage = resolve('.local');
 mkdirSync(storage, { recursive: true });
 mkdirSync(resolve('.local/wordpress'), { recursive: true });
+mkdirSync(resolve('.local/wordpress/wp-content/mu-plugins'), { recursive: true });
+cpSync(resolve('wordpress/mu-plugins'), resolve('.local/wordpress/wp-content/mu-plugins'), { recursive: true });
 await runCLI({
   command: 'server',
   port: 9400,

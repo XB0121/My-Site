@@ -1,0 +1,19 @@
+---
+import { site, base } from '../lib/site';
+import '../styles/site.css';
+interface Props { title?: string; description?: string; }
+const { title = site.settings.site_name, description = site.settings.hero_description } = Astro.props;
+const s = site.settings;
+---
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} /><meta name="theme-color" content="#f7f7f2" /><title>{title}</title></head>
+<body>
+  <a class="skip-link" href="#main">跳至内容</a>
+  <header class="site-header"><div class="header-inner"><a class="brand" href={base} aria-label={`${s.site_name} · 主页`}>{s.site_name}<span class="brand-dot" aria-hidden="true"></span></a>
+    <nav aria-label="主导航"><a href={`${base}#home`}>{s.nav_home}</a><a href={`${base}#projects`}>{s.nav_projects}</a><a href={`${base}#about`}>{s.nav_about}</a><a class="nav-contact" href={`${base}#contact`}>{s.nav_contact}<span aria-hidden="true">↗</span></a></nav>
+  </div></header>
+  <main id="main"><slot /></main>
+  <footer class="site-footer"><a href={base}>{s.site_name}<span class="brand-dot" aria-hidden="true"></span></a><span>{s.footer_text}</span><span>© {new Date().getFullYear()}</span></footer>
+</body>
+</html>

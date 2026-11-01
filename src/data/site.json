@@ -1,0 +1,45 @@
+{
+  "settings": {
+    "site_name": "我的独立站",
+    "nav_home": "Home",
+    "nav_projects": "Projects",
+    "nav_about": "About Me",
+    "nav_contact": "Contact",
+    "hero_eyebrow": "A SPACE FOR IDEAS & EXPLORATION",
+    "hero_title": "让想法生长，",
+    "hero_accent": "让作品发生。",
+    "hero_description": "记录探索，分享作品。在这里，把每一个值得尝试的想法，变成看得见的可能。",
+    "hero_button": "探索我的项目",
+    "hero_secondary": "认识我",
+    "hero_image_id": 0,
+    "hero_image_alt": "首页主视觉",
+    "projects_title": "从一个想法，到一件作品。",
+    "projects_description": "这里收藏我的实践、实验，以及正在发生的新尝试。",
+    "about_eyebrow": "A LITTLE ABOUT ME",
+    "about_title": "好奇心，是我的出发点。",
+    "about_text": "欢迎来到我的个人空间。我喜欢把脑海里的想法付诸实践，在尝试中学习，在创造中发现新的可能。\n\n这个网站记录我的作品，也记录我正在探索的方向。很高兴在这里遇见你。",
+    "about_image_id": 0,
+    "about_image_alt": "关于我",
+    "contact_title": "下一个好想法，\n从一声你好开始。",
+    "contact_text": "关于项目、合作，或只是想打个招呼，都欢迎与我联系。",
+    "contact_email": "",
+    "contact_wechat": "",
+    "contact_social_label": "GitHub",
+    "contact_social_url": "https://github.com/XB0121",
+    "footer_text": "保持好奇，持续创造。",
+    "hero_image": null,
+    "about_image": null
+  },
+  "projects": [
+    {
+      "id": 4,
+      "title": "我的独立站",
+      "excerpt": "一个属于自己的创作空间。从想法出发，把内容、作品与探索连接起来。",
+      "content": "<p>这是我的个人网站，也是持续更新的创作空间。</p>\n<p>我在这里分享项目、记录探索，并与有趣的人建立连接。网站的文案、图片与项目内容，都可以通过后台直接编辑。</p>\n",
+      "image": null,
+      "category": "",
+      "year": "",
+      "url": ""
+    }
+  ]
+}

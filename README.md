@@ -20,11 +20,19 @@ powershell -ExecutionPolicy Bypass -File scripts/start-dev.ps1
 
 - 前端：http://127.0.0.1:4321
 - 后台：http://127.0.0.1:9400/wp-admin/
-- Playground 本地开发默认账号：admin，密码：password。仅用于本机开发。
+- 后台登录信息保存在桌面的「我的网站备忘录.txt」，不提交到代码仓库。
 - WordPress 文件、媒体和 SQLite 数据在 `.local/wordpress/`，已排除 Git。首次启动会下载 WordPress 和 PHP WASM，需联网。
 - 停止后内容保存在本地。备份整个 `.local/wordpress/` 前先停止后台。
 
-发布或修改 WordPress 文章后，同步到前端：
+## 在 WordPress 中编辑网站（无需写代码）
+
+后台菜单 **网站编辑** 中可以编辑网站名称、英文导航、首页 Hero 文案与图片、项目区标题、关于我、联络方式和页脚。菜单 **项目** 可以管理作品的标题、详情、摘要、封面、分类、年份、外链及显示顺序；只有已发布的项目会显示。
+
+通过 `start.cmd` 启动时，保存后台内容后约 4 秒自动同步到本地预览。更改内容后双击本项目中的 **发布网站.cmd** 即可同步内容、构建并上传到 GitHub，随后等待 Actions 部署。首次发布可能要求在浏览器登录 GitHub。失败时会保留本地内容，不会强制覆盖远程代码。
+
+图片从 WordPress 媒体库选择或上传，同步时复制到 `public/media/`，随静态网站发布。无需向互联网开放本地后台。更换为线上 WordPress 时，将 `wordpress/mu-plugins/` 的内容复制到线上站点的 `wp-content/mu-plugins/`。
+
+需要手动同步时：
 
 ```powershell
 node .tools/package/bin/npm-cli.js run sync
